@@ -1,13 +1,22 @@
 {
   "name": "personal-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --pretty --noEmit"
+    "type-check": "tsc --pretty --noEmit",
+    "prepare": "husky",
+    "code-format": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.@(ts|tsx|js)": [
+      "npm run lint",
+      "npm run code-format"
+    ],
+    "*.@(scss|css)": "npm run code-format"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -23,6 +32,11 @@
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "eslint-plugin-jsdoc": "50.6.6",
+    "eslint-plugin-react": "7.37.4",
+    "eslint-plugin-react-func": "0.1.18",
+    "@eslint/eslintrc": "^3",
+    "husky": "9.1.7",
+    "prettier": "3.5.3"
   }
 }
