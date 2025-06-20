@@ -118,7 +118,7 @@ jobs:
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
           vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" stoyan-grozdanov-non-prod.vercel.app
 
-    deploy_prod:
+  deploy_prod:
     name: Deploy Prod
     needs: [deploy_nonprod]
     runs-on: ubuntu-latest
