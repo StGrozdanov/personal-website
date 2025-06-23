@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 import Navigation from './_components/Navigation/Navigation';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 const interFont = Inter({
   subsets: ['latin'],
@@ -30,8 +31,10 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${interFont.variable} ${sansFont.variable}`}>
       <body>
-        <Navigation />
-        {children}
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

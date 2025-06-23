@@ -66,6 +66,7 @@ export default [
       'react/react-in-jsx-scope': 0,
       'react/display-name': 0,
       'react/prop-types': 0,
+      'react-hooks/exhaustive-deps': 0,
       '@typescript-eslint/explicit-function-return-type': 0,
       '@typescript-eslint/explicit-member-accessibility': 0,
       '@typescript-eslint/indent': 0,
