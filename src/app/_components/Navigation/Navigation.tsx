@@ -47,24 +47,24 @@ export default function Navigation() {
           alt='logo'
           width={60}
           height={60}
-          className='w-10 md:w-15 filter grayscale brightness-65 cursor-pointer hover:scale-120 hover:brightness-50 transition-transform hover:rotate-y-50 hover:rotate-x-20 duration-600 dark:brightness-110 dark:hover:brightness-150'
+          className='w-14 md:w-15 filter grayscale brightness-65 cursor-pointer hover:scale-120 hover:brightness-50 transition-transform hover:rotate-y-50 hover:rotate-x-20 duration-600 dark:brightness-110 dark:hover:brightness-150'
         />
       </Link>
 
       <ul className='gap-2 flex items-center md:gap-4 md:hidden'>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
           <Link href='/blog'>
-            <FontAwesomeIcon icon={faBlog} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faBlog} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
           <Link href='/projects'>
-            <FontAwesomeIcon icon={faCode} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faCode} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
           <Link href='/work'>
-            <FontAwesomeIcon icon={faBriefcase} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faBriefcase} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
@@ -72,17 +72,17 @@ export default function Navigation() {
             target='_blank'
             href='https://www.linkedin.com/in/stoyan-grozdanov/'
           >
-            <FontAwesomeIcon icon={faLinkedin} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faLinkedin} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
           <Link target='_blank' href='https://github.com/StGrozdanov'>
-            <FontAwesomeIcon icon={faGithub} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faGithub} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
           <Link target='_blank' href='mailto:st.grozdanov.developer@gmail.com'>
-            <FontAwesomeIcon icon={faEnvelope} fixedWidth size='lg' />
+            <FontAwesomeIcon icon={faEnvelope} fixedWidth size='xl' />
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
@@ -90,12 +90,13 @@ export default function Navigation() {
             <FontAwesomeIcon
               icon={themeIcons[theme as keyof typeof themeIcons].icon}
               fixedWidth
+              size='xl'
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             />
           : <FontAwesomeIcon
               icon={faSun}
               fixedWidth
-              size='lg'
+              size='xl'
               className='opacity-0'
             />
           }
