@@ -30,14 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${interFont.variable} ${sansFont.variable}`}>
-      <body className='bg-[url("/bg-white.avif")] dark:bg-[url("/bg-dark.png")] dark:text-gray-300 text-gray-600 bg-cover bg-center bg-fixed selection:bg-gray-200 selection:text-gray-900 dark:selection:bg-gray-800 dark:selection:text-gray-200'>
-        <div className='fixed inset-0 pointer-events-none' />
-        <div className='z-1'>
-          <ThemeProvider>
-            <Navigation />
-            {children}
-          </ThemeProvider>
-        </div>
+      <body className='bg-[url("/bg-white.avif")] dark:bg-[url("/bg-dark.png")] dark:text-gray-300 text-gray-600 bg-cover bg-center bg-fixed selection:bg-gray-200 selection:text-gray-900 dark:selection:text-gray-200'>
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
