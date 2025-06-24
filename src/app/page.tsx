@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Resume from './_components/Resume/Resume';
 
 export default function Home() {
   return (
-    <section className='px-4 py-8 lg:px-80 font-inter'>
+    <section className='mt-10 lg:mt-0 px-4 py-8 lg:px-80 font-inter relative'>
       <h1 className='text-4xl font-semibold font-inter mb-10 text-black dark:text-white'>
         Stoyan Grozdanov
       </h1>
       <article className='space-y-6 '>
         <p className='mb-6 slide-enter'>
-          Hey! I&apos;m Stoyan, a software engineer and blockchain / AI investor.
+          Hey! I&apos;m Stoyan, a software engineer and blockchain / AI
+          investor.
         </p>
         <p className='flex items-center gap-2 mb-1 slide-enter-1'>
           Working at{' '}
@@ -43,6 +45,7 @@ export default function Home() {
             <span>Digital Finance</span>
           </span>
         </p>
+        <Resume link='https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/cv' />
         <p className='mt-4 slide-enter-2'>
           I find passion and enjoyment in building things from scratch and
           turning raw ideas into real, working products. I love to brainstorm
@@ -51,9 +54,9 @@ export default function Home() {
         </p>
         <p className='mt-4 slide-enter-3'>
           I write blog posts about software engineering, Web3, and thoughts on
-          AI - sharing what I learn and where I think things are headed. I&apos;m
-          also building <b>Digital Finance</b> to rethink how we track and grow
-          our money.
+          AI - sharing what I learn and where I think things are headed.
+          I&apos;m also building <b>Digital Finance</b> to rethink how we track
+          and grow our money.
         </p>
         <p className='mt-4 slide-enter-4'>
           Outside of programming and investing, I enjoy traveling, off-roading,
