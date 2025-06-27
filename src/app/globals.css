@@ -11,7 +11,7 @@
 
   /* Animations */
   --animate-fadeInDown: fadeInDown 2s ease forwards;
-  --enter-initial: 0ms;
+  --enter-initial: 90ms;
   --enter-step: 90ms;
 }
 

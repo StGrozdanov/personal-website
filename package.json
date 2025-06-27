@@ -19,29 +19,33 @@
     "*.@(scss|css)": "npm run code-format"
   },
   "dependencies": {
+    "next": "15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
+    "@eslint/eslintrc": "^3",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-regular-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@fortawesome/react-fontawesome": "0.2.2",
-    "tailwindcss": "^4",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "eslint-plugin-jsdoc": "51.1.1",
+    "eslint-plugin-jsdoc": "51.2.3",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-func": "0.1.18",
-    "@eslint/eslintrc": "^3",
     "husky": "9.1.7",
-    "prettier": "3.5.3"
+    "prettier": "3.6.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "winston": "^3.11.0",
+    "pg": "8.16.2",
+    "date-fns": "^4.1.0",
+    "react-animation-on-scroll": "^5.1.0"
   }
 }
