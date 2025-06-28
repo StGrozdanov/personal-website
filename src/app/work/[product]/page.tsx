@@ -19,7 +19,13 @@ export default async function Work({
 }) {
   const { product } = await params;
   const companyName = decodeURI(product);
-  const workData = await getWorkDetails(companyName);
+
+  const allPromises = Promise.all([
+    getWorkDetails(companyName),
+    getAllWorkExperiences(),
+  ]);
+
+  const [workData, allWorkData] = await allPromises;
   const work = workData.find(({ product }) => product === companyName);
 
   return (
@@ -35,7 +41,7 @@ export default async function Work({
       <ArticleImage imageURL={work?.images[1] || ''} />
       <PositionDescriptionArticle contribution={work?.contribution || []} />
       <NextPositionArticle
-        positions={workData}
+        positions={allWorkData}
         currentJob={work?.product || ''}
       />
     </section>

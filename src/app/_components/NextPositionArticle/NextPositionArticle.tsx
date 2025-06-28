@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
-import type { WorkDetails } from '@/app/work/server-functions/getWorkData';
+import type { WorkExperience } from '@/app/work/server-functions/getWorkData';
 
 interface NextPositionArticle {
-  positions: WorkDetails[];
+  positions: WorkExperience[];
   currentJob: string;
 }
 
@@ -17,7 +17,7 @@ export default function NextPositionArticle({
   currentJob,
 }: NextPositionArticle) {
   const findTheNextArticle = useCallback(
-    (jobs: WorkDetails[]) => {
+    (jobs: WorkExperience[]) => {
       return jobs
         ?.map((job, currentJobIndex) => {
           if (job.product === currentJob && currentJobIndex + 1 < jobs.length) {
@@ -57,7 +57,7 @@ export default function NextPositionArticle({
       <div
         className='w-full h-[75vh] bg-fixed bg-center bg-no-repeat bg-cover brightness-80 max-lg:bg-scroll'
         style={{
-          backgroundImage: `url(${findTheNextArticle(positions)[0]?.images[0]})`,
+          backgroundImage: `url(${findTheNextArticle(positions)[0]?.image})`,
         }}
       />
     </article>
