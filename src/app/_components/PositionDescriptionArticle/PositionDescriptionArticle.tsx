@@ -8,7 +8,7 @@ export default function PositionDescriptionArticle({
   return (
     <article className='bg-black'>
       <AnimateOnScroll
-        animationName='fadeInUp'
+        animationName='animate-fade-in-up'
         className='flex justify-around items-center py-25 bg-black text-white max-lg:flex-col max-lg:py-5'
       >
         <h2 className='m-0 text-2xl'>Contribution</h2>

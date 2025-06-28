@@ -18,7 +18,7 @@ export default function ThreeSectionDescriptionArticle({
 }: ThreeSectionDescriptionArticleProps) {
   return (
     <Animate
-      animationName='fadeInUp'
+      animationName='animate-fade-in-up'
       className='flex gap-12 px-24 py-20 lg:px-48 lg:py-25 xl:px-64 xl:gap-16 max-lg:flex-col max-lg:items-center max-lg:px-8 max-lg:py-15 max-lg:gap-6'
     >
       <section className='flex-1 max-lg:w-full max-lg:text-center'>

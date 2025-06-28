@@ -11,6 +11,7 @@
 
   /* Animations */
   --animate-fadeInDown: fadeInDown 2s ease forwards;
+  --animate-fadeInUp: fadeInUp 2s ease forwards;
   --enter-initial: 90ms;
   --enter-step: 90ms;
 }
@@ -74,6 +75,30 @@
     opacity: 0;
     transform: translateY(-100%);
     animation: fadeInDown 2s ease 2s forwards;
+  }
+
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: var(--animate-fadeInUp);
+  }
+
+  .animate-fade-in-up-50 {
+    opacity: 0;
+    transform: translateY(50%);
+    animation: var(--animate-fadeInUp);
+  }
+
+  .animate-fade-in-up-delay-05 {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeInUp 2s ease 0.5s forwards;
+  }
+
+  .animate-fade-in-up-delay-1 {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeInUp 2s ease 1s forwards;
   }
 
   .animate-duration-fast {
@@ -156,6 +181,14 @@
 }
 
 @keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);

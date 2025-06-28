@@ -19,7 +19,7 @@ export default function Animate({
 }: AnimateProps) {
   return (
     <AnimationOnScroll
-      animateIn={`animate__${animationName}`}
+      animateIn={animationName}
       animateOnce={animateOnce ? animateOnce : true}
       delay={delay}
       className={className}
