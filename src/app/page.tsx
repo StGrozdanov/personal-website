@@ -4,7 +4,7 @@ import Resume from './_components/Resume/Resume';
 
 export default function Home() {
   return (
-    <section className='mt-10 lg:mt-0 px-4 py-8 lg:px-80 font-inter relative'>
+    <section className='mt-38 lg:mt-18 px-4 py-8 lg:px-80 font-inter relative'>
       <h1 className='text-4xl font-semibold font-inter mb-10 text-black dark:text-white'>
         Stoyan Grozdanov
       </h1>

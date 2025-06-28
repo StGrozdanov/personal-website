@@ -40,7 +40,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className='flex justify-between items-center p-4 lg:px-8 text-gray-500 font-medium font-inter dark:bg-black dark:text-gray-300'>
+    <nav className='flex shadow-md shadow-gray-100 dark:shadow-gray-800 fixed top-0 left-0 right-0 z-50 bg-[#f9f9f9] justify-between items-center p-4 lg:px-8 text-gray-500 font-medium font-inter dark:bg-black dark:text-gray-300'>
       <Link href='/'>
         <Image
           src='/logo.png'
