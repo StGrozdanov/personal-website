@@ -23,7 +23,7 @@ export default function ArticleImage({
   return (
     <article className='relative'>
       <div
-        className='w-full h-screen bg-scroll lg:bg-fixed bg-center bg-no-repeat bg-cover brightness-75'
+        className='w-full h-screen bg-scroll lg:bg-fixed bg-center bg-no-repeat bg-cover brightness-75 safari-parallax-fix'
         style={{ backgroundImage: `url(${imageURL})` }}
       />
       {includeArrow && (

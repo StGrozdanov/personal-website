@@ -55,7 +55,7 @@ export default function NextPositionArticle({
         </h2>
       </section>
       <div
-        className='w-full h-[75vh] bg-fixed bg-center bg-no-repeat bg-cover brightness-80 max-lg:bg-scroll'
+        className='w-full h-[75vh] bg-fixed bg-center bg-no-repeat bg-cover brightness-80 max-lg:bg-scroll safari-parallax-fix'
         style={{
           backgroundImage: `url(${findTheNextArticle(positions)[0]?.image})`,
         }}
