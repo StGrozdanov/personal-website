@@ -2,11 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { WorkExperience } from '@/app/work/server-functions/getWorkData';
 
-export default function ProjectCard({ work }: { work: WorkExperience }) {
+type ProjectCardProps = {
+  work: WorkExperience;
+  collection: 'work' | 'projects';
+}
+
+export default function ProjectCard({ work, collection }: ProjectCardProps) {
   return (
     <Link
       key={work.product}
-      href={`/work/${work.product}`}
+      href={`/${collection}/${work.product}`}
       className='group mt-6 flex items-center justify-between p-4 rounded-lg transition-all duration-600 '
     >
       <article className='flex items-center'>

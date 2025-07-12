@@ -31,7 +31,10 @@ export default function Home() {
         </p>
         <p className='flex items-center gap-2 slide-enter-1'>
           Creator of{' '}
-          <span className='text-gray-500 flex items-center gap-1 bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors duration-300 hover:text-gray-900'>
+          <Link
+            href='/projects/Digital Finance'
+            className='text-gray-500 flex items-center gap-1 bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors duration-300 hover:text-gray-900'
+          >
             <span
               style={{
                 backgroundImage: 'url("https://github.com/nuxtlabs.png")',
@@ -46,7 +49,7 @@ export default function Home() {
               }}
             />
             <span>Digital Finance</span>
-          </span>
+          </Link>
         </p>
         <Resume link='https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/cv' />
         <p className='mt-4 slide-enter-2'>
