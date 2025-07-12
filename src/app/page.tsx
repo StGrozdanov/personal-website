@@ -4,8 +4,8 @@ import Resume from './_components/Resume/Resume';
 
 export default function Home() {
   return (
-    <section className='mt-38 lg:mt-18 px-4 py-8 lg:px-80 font-inter relative'>
-      <h1 className='text-4xl font-semibold font-inter mb-10 text-black dark:text-white'>
+    <section className='px-4 py-8 lg:px-80 font-inter relative'>
+      <h1 className='text-4xl font-semibold mb-10 text-black dark:text-white'>
         Stoyan Grozdanov
       </h1>
       <article className='space-y-6 '>
@@ -15,7 +15,10 @@ export default function Home() {
         </p>
         <p className='flex items-center gap-2 mb-1 slide-enter-1'>
           Working at{' '}
-          <span className='text-gray-500 flex items-center gap-1 bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors duration-300 hover:text-gray-900'>
+          <Link
+            href='/work/IC Consult'
+            className='text-gray-500 flex items-center gap-1 bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors duration-300 hover:text-gray-900'
+          >
             <Image
               src='/ICLogo.svg'
               alt='iC Consult logo'
@@ -24,7 +27,7 @@ export default function Home() {
               className='rounded-sm'
             />
             <span>IC Consult</span>
-          </span>
+          </Link>
         </p>
         <p className='flex items-center gap-2 slide-enter-1'>
           Creator of{' '}

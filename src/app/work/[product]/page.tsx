@@ -29,7 +29,7 @@ export default async function Work({
   const work = workData.find(({ product }) => product === companyName);
 
   return (
-    <section>
+    <section className='-mt-23'>
       <ArticleImage imageURL={work?.images?.[0] || ''} includeArrow />
       <ThreeSectionDescriptionArticle
         product={work?.product || ''}
