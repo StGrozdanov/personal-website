@@ -1,11 +1,12 @@
 import ArticleImage from '@/app/_components/ArticleImage/ArticleImage';
-import ThreeSectionDescriptionArticle from '@/app/_components/ThreeSectionDescriptionArticle/ThreeSectionDescriptionArticle';
+import DoubleSectionDescriptionArticle from '@/app/_components/DoubleSectionDescriptionArticle/DoubleSectionDescriptionArticle';
 import NextPositionArticle from '@/app/_components/NextPositionArticle/NextPositionArticle';
-import PositionDescriptionArticle from '@/app/_components/PositionDescriptionArticle/PositionDescriptionArticle';
+import DescriptionArticle from '@/app/_components/DescriptionArticle/DescriptionArticle';
 import {
   getAllWorkExperiences,
   getWorkDetails,
 } from '@/app/work/server-functions/getWorkData';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const workData = await getAllWorkExperiences();
@@ -18,32 +19,34 @@ export default async function Work({
   params: Promise<{ product: string }>;
 }) {
   const { product } = await params;
-  const companyName = decodeURI(product);
+  const decodedProduct = decodeURIComponent(product);
 
-  const allPromises = Promise.all([
-    getWorkDetails(companyName),
-    getAllWorkExperiences(),
-  ]);
+  const workDetails = getWorkDetails(decodedProduct);
+  const allWorkData = getAllWorkExperiences();
 
-  const [workData, allWorkData] = await allPromises;
-  const work = workData.find(({ product }) => product === companyName);
+  const [work, fullWork] = await Promise.all([workDetails, allWorkData]);
+
+  if (!work) {
+    return notFound();
+  }
 
   return (
     <section className='-mt-23'>
-      <ArticleImage imageURL={work?.images?.[0] || ''} includeArrow />
-      <ThreeSectionDescriptionArticle
-        product={work?.product || ''}
-        started_at={work?.started_at || new Date()}
-        ended_at={work?.ended_at || null}
-        concept={work?.concept || ''}
-        techStack={work?.techStack || []}
+      <ArticleImage imageURL={work.images[0]} includeArrow />
+      <DoubleSectionDescriptionArticle
+        product={work.product}
+        started_at={work.started_at}
+        ended_at={work.ended_at}
+        techStack={work.tech_stack}
       />
-      <ArticleImage imageURL={work?.images[1] || ''} />
-      <PositionDescriptionArticle contribution={work?.contribution || []} />
-      <NextPositionArticle
-        positions={allWorkData}
-        currentJob={work?.product || ''}
+      <ArticleImage imageURL={work.images[1] || ''} />
+      <DescriptionArticle description={work.concept} title='Concept' />
+      <ArticleImage imageURL={work.images[0]} />
+      <DescriptionArticle
+        description={work.contribution?.join('. ')}
+        title='Contribution'
       />
+      <NextPositionArticle positions={fullWork} currentJob={work.product} />
     </section>
   );
 }

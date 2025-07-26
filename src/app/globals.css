@@ -1,5 +1,6 @@
 @charset 'UTF-8';
 @import 'tailwindcss';
+@import 'highlight.js/styles/github.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -221,4 +222,123 @@
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+}
+
+.callout {
+  @apply border-l-4 rounded-r-lg p-4 my-6 shadow-sm;
+}
+
+.callout-title {
+  @apply font-semibold text-lg mb-2;
+}
+
+.callout-content {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.callout-note {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-950/20;
+}
+
+.callout-note .callout-title {
+  @apply text-blue-800 dark:text-blue-200;
+}
+
+.callout-tip {
+  @apply border-green-500 bg-green-50 dark:bg-green-950/20;
+}
+
+.callout-tip .callout-title {
+  @apply text-green-800 dark:text-green-200;
+}
+
+.callout-warning {
+  @apply border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20;
+}
+
+.callout-warning .callout-title {
+  @apply text-yellow-800 dark:text-yellow-200;
+}
+
+.callout-danger {
+  @apply border-red-500 bg-red-50 dark:bg-red-950/20;
+}
+
+.callout-danger .callout-title {
+  @apply text-red-800 dark:text-red-200;
+}
+
+.callout-info {
+  @apply border-indigo-500 bg-indigo-50 dark:bg-indigo-950/20;
+}
+
+.callout-info .callout-title {
+  @apply text-indigo-800 dark:text-indigo-200;
+}
+
+/* Markdown content styling */
+.markdown-content {
+  @apply text-gray-800 dark:text-gray-200 leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-3xl font-bold mb-6;
+}
+
+.markdown-content h2 {
+  @apply text-2xl font-semibold mb-4 mt-8;
+}
+
+.markdown-content h3 {
+  @apply text-xl font-semibold mb-3 mt-6;
+}
+
+.markdown-content p {
+  @apply mb-4 leading-relaxed;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 dark:text-gray-400 my-6;
+}
+
+.markdown-content pre {
+  @apply rounded-lg overflow-hidden my-6;
+}
+
+.markdown-content code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+.markdown-content pre code {
+  @apply bg-transparent p-0;
+}
+
+.markdown-content a {
+  @apply text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 underline;
+}
+
+.markdown-content img {
+  @apply rounded-lg shadow-sm mx-auto my-6;
+}
+
+.markdown-content table {
+  @apply border-collapse border border-gray-300 dark:border-gray-600 my-6 w-full;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2;
+}
+
+.markdown-content th {
+  @apply bg-gray-50 dark:bg-gray-800 font-semibold;
 }
