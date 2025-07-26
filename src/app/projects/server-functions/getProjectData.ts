@@ -70,13 +70,13 @@ export async function getAllProjects(): Promise<Project[]> {
         product: 'All the best recipes',
         logo: '/all-the-best-recipes.png',
         image: 'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/job-TechPods-91d71edc-44d1-4106-93c4-4e49e043b32e',
-        summary: 'Recipe website that we use for our family',
+        summary: 'Recipe website that we use in our family',
       },
       {
         product: 'Digital Finance',
-        logo: "https://github.com/nuxtlabs.png",
+        logo: '/digital-finance.png',
         image: 'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/casino.com.png',
-        summary: 'Platform for tracking and growing our money',
+        summary: 'Tracking and growing investments',
       },
     ]);
   });

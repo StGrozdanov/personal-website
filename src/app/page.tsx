@@ -35,18 +35,12 @@ export default function Home() {
             href='/projects/Digital Finance'
             className='text-gray-500 flex items-center gap-1 bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors duration-300 hover:text-gray-900'
           >
-            <span
-              style={{
-                backgroundImage: 'url("https://github.com/nuxtlabs.png")',
-                content: '""',
-                display: 'inline-block',
-                height: '1.1em',
-                width: '1.1em',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                borderRadius: '2px',
-              }}
+            <Image
+              src='/digital-finance-big.png'
+              alt='Digital Finance logo'
+              width={18}
+              height={18}
+              className='rounded-sm'
             />
             <span>Digital Finance</span>
           </Link>
@@ -61,8 +55,11 @@ export default function Home() {
         <p className='mt-4 slide-enter-3'>
           I write blog posts about software engineering, Web3, and thoughts on
           AI - sharing what I learn and where I think things are headed.
-          I&apos;m also building <b>Digital Finance</b> to rethink how we track
-          and grow our money.
+          I&apos;m also building{' '}
+          <Link href='/projects/Digital Finance'>
+            <b>Digital Finance</b>
+          </Link>{' '}
+          to rethink how we track and grow our money.
         </p>
         <p className='mt-4 slide-enter-4'>
           Outside of programming and investing, I enjoy traveling, off-roading,
