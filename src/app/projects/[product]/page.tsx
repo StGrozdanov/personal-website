@@ -107,7 +107,7 @@ export default async function ProjectDetail({
             </a>
           )}
 
-          {markdownContent.frontmatter.repository.map(
+          {markdownContent.frontmatter.repository && markdownContent.frontmatter.repository.map(
             (repo: string, index: number) => (
               <a
                 href={repo}

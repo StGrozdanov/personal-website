@@ -21,6 +21,8 @@ images:
 logo: '/digital-finance.png'
 image: 'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/casino.com.png'
 summary: 'Tracking and growing investments'
+url: http://your-digital-finance-app.vercel.app
+repository: [https://github.com/StGrozdanov/digital-finance]
 ---
 
 # Digital Finance
