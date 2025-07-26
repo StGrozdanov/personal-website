@@ -1,47 +1,50 @@
 'use server';
 
 import 'server-only';
-// import { dbQuery } from '@/lib/db/pool';
+import { getAllMarkdownContent, getMarkdownContent } from '@/lib/markdown';
 
 export type BlogDetails = {
   title: string;
   content: string;
+  html: string;
   created_at: Date;
+  summary?: string;
+  tags?: string[];
+  image?: string;
 };
-
-const blogDetails: BlogDetails[] = [
-  {
-    title: 'Blockchain and Future Use Cases',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    created_at: new Date('2021-12-12'),
-  },
-  {
-    title: 'AI and Future Use Cases',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    created_at: new Date('2025-06-06'),
-  },
-  {
-    title: 'Building a Startup - Digital Finance Part I',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    created_at: new Date('2025-06-06'),
-  },
-];
 
 /**
  * Get blog details for a specific blog
- * @param blog - The blog to get details for
- * @returns {BlogDetails} - An object of blog data
+ * @param title - The blog title slug to get details for
+ * @returns {BlogDetails | undefined} - An object of blog data
  */
 export async function getBlogDetails(
   title: string,
 ): Promise<BlogDetails | undefined> {
-  //   return dbQuery(`SELECT * FROM work_data;`);
-  return new Promise(resolve => {
-    resolve(blogDetails.find(blog => blog.title === title));
-  });
+  try {
+    const slug = title
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '');
+    const result = await getMarkdownContent('blog', slug);
+
+    if (!result) {
+      return undefined;
+    }
+
+    return {
+      title: result.frontmatter.title,
+      content: result.content,
+      html: result.html,
+      created_at: new Date(result.frontmatter.date),
+      summary: result.frontmatter.summary,
+      tags: result.frontmatter.tags,
+      image: result.frontmatter.image,
+    };
+  } catch (error) {
+    console.error(`Error getting blog details for ${title}:`, error);
+    return undefined;
+  }
 }
 
 export type Blog = {
@@ -50,25 +53,21 @@ export type Blog = {
 };
 
 /**
- * Get all blogs from the database
+ * Get all blogs from markdown files
  * @returns {Blog[]} - An array of blogs
  */
 export async function getAllBlogs(): Promise<Blog[]> {
-  // return dbQuery(`SELECT * FROM work_data;`);
-  return new Promise(resolve => {
-    resolve([
-      {
-        title: 'Blockchain and Future Use Cases',
-        created_at: new Date('2021-12-12'),
-      },
-      {
-        title: 'AI and Future Use Cases',
-        created_at: new Date('2025-06-06'),
-      },
-      {
-        title: 'Building a Startup - Digital Finance Part I',
-        created_at: new Date('2025-06-06'),
-      },
-    ]);
-  });
+  try {
+    const allContent = await getAllMarkdownContent('blog');
+
+    return allContent
+      .map(content => ({
+        title: content.frontmatter.title,
+        created_at: new Date(content.frontmatter.date),
+      }))
+      .sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
+  } catch (error) {
+    console.error('Error getting all blogs:', error);
+    return [];
+  }
 }
