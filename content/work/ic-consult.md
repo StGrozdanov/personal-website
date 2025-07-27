@@ -22,5 +22,5 @@ contribution:
   [
     Developing and maintaining the platform working on multiple Golang microservices.,
   ]
-images: [/icc-1.png, /icc-1.png]
+images: [/icc-1.png, /icc-2.jpg]
 ---
