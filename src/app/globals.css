@@ -278,19 +278,19 @@
 
 /* Markdown content styling */
 .markdown-content {
-  @apply text-gray-800 dark:text-gray-200 leading-relaxed;
+  @apply text-gray-600 dark:text-gray-200 leading-relaxed;
 }
 
 .markdown-content h1 {
-  @apply text-3xl font-bold mb-6;
+  @apply text-3xl font-bold mb-6 text-black dark:text-white;
 }
 
 .markdown-content h2 {
-  @apply text-2xl font-semibold mb-4 mt-8;
+  @apply text-2xl font-semibold mb-4 mt-8 text-black dark:text-gray-200;
 }
 
 .markdown-content h3 {
-  @apply text-xl font-semibold mb-3 mt-6;
+  @apply text-xl font-semibold mb-3 mt-6 text-black dark:text-gray-200;
 }
 
 .markdown-content p {

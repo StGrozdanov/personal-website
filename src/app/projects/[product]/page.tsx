@@ -33,7 +33,7 @@ export default async function ProjectDetail({
   const markdownContent = await getMarkdownContent('projects', slug);
 
   return (
-    <article className='px-4 lg:px-96 py-8'>
+    <article className='px-4 lg:px-80 py-8 font-inter'>
       <header className='mb-8'>
         <h1 className='text-4xl font-bold mb-4 text-black dark:text-white'>
           {project.product}
@@ -50,31 +50,17 @@ export default async function ProjectDetail({
             </time>
           </div>
 
-          {project.ended_at && (
-            <div className='flex items-center gap-2'>
-              <span>Completed:</span>
-              <time dateTime={project.ended_at.toISOString()}>
-                {project.ended_at.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                })}
-              </time>
-            </div>
-          )}
-
-          {markdownContent?.frontmatter.ended_at && (
+          {
             <span
               className={`px-2 py-1 rounded-full text-xs ${
-                markdownContent.frontmatter.ended_at ?
+                project.ended_at ?
                   'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                 : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
               }`}
             >
-              {markdownContent.frontmatter.ended_at ?
-                'Completed'
-              : 'In Progress'}
+              {project.ended_at ? 'Completed' : 'In Progress'}
             </span>
-          )}
+          }
         </div>
 
         {project.tech_stack && project.tech_stack.length > 0 && (
@@ -96,19 +82,19 @@ export default async function ProjectDetail({
         )}
 
         <div className='flex gap-4 mb-6'>
-          {markdownContent?.frontmatter.url && (
+          {project.url && (
             <a
-              href={markdownContent.frontmatter.url}
+              href={project.url}
               target='_blank'
               rel='noopener noreferrer'
               className='inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'
             >
-              🌐 Live Demo
+              🌐 Visit
             </a>
           )}
 
-          {markdownContent.frontmatter.repository && markdownContent.frontmatter.repository.map(
-            (repo: string, index: number) => (
+          {project.repository &&
+            project.repository.map((repo: string, index: number) => (
               <a
                 href={repo}
                 key={index + repo}
@@ -116,10 +102,9 @@ export default async function ProjectDetail({
                 rel='noopener noreferrer'
                 className='inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors'
               >
-                📁 Source Code {index === 0 ? '' : `Part ${index + 1}`}
+                📁 Code {index === 0 ? '' : `Part ${index + 1}`}
               </a>
-            ),
-          )}
+            ))}
         </div>
 
         {project.images && project.images.length > 0 && (
@@ -135,7 +120,7 @@ export default async function ProjectDetail({
 
       {markdownContent && (
         <div
-          className='markdown-content max-w-none'
+          className='markdown-content max-w-none text-md'
           dangerouslySetInnerHTML={{ __html: markdownContent.html }}
         />
       )}
