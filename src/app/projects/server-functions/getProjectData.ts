@@ -7,9 +7,8 @@ export type ProjectDetails = {
   product: string;
   started_at: Date;
   ended_at: Date | null;
-  concept: string;
   tech_stack: string[];
-  images: string[];
+  image: string;
   url: string;
   repository: string[];
 };
@@ -37,12 +36,14 @@ export async function getProjectDetails(
     const projectDetails: ProjectDetails = {
       product,
       started_at: new Date(result.frontmatter.started_at),
-      ended_at: new Date(result.frontmatter.ended_at),
-      concept: result.frontmatter.concept,
+      ended_at:
+        result.frontmatter.ended_at ?
+          new Date(result.frontmatter.ended_at)
+        : null,
       tech_stack: result.frontmatter.tech_stack,
-      images: result.frontmatter.images,
       url: result.frontmatter.url,
       repository: result.frontmatter.repository,
+      image: result.frontmatter.image,
     };
 
     return projectDetails;
@@ -67,12 +68,25 @@ export async function getAllProjects(): Promise<Project[]> {
   try {
     const allContent = await getAllMarkdownContent('projects');
 
-    return allContent.map(content => ({
-      product: content.frontmatter.product,
-      logo: content.frontmatter.logo,
-      image: content.frontmatter.image,
-      summary: content.frontmatter.summary,
-    }));
+    return allContent
+      .map(content => ({
+        product: content.frontmatter.product,
+        logo: content.frontmatter.logo,
+        image: content.frontmatter.image,
+        summary: content.frontmatter.summary,
+      }))
+      .sort((a, b) => {
+        // Sort by start date, most recent first
+        const aDate = new Date(
+          allContent.find(c => c.frontmatter.product === a.product)?.frontmatter
+            .started_at || Date.now(),
+        );
+        const bDate = new Date(
+          allContent.find(c => c.frontmatter.product === b.product)?.frontmatter
+            .started_at || Date.now(),
+        );
+        return bDate.getTime() - aDate.getTime();
+      });
   } catch (error) {
     console.error('Error getting all projects:', error);
     return [];

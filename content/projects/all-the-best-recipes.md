@@ -2,7 +2,6 @@
 product: All The Best Recipes
 started_at: 2021-12-12
 ended_at: 2024-04-08
-concept: Digital cookbook, originally created for personal and family use, the platform now allows anyone to register, contribute their own recipes, and engage with the community by commenting, sharing experiences, and discovering new culinary ideas.
 tech_stack:
   [
     'Golang',
@@ -13,15 +12,13 @@ tech_stack:
     'TypeScript',
     'PostgreSQL',
     'Websocket',
+    'Tailwind CSS',
+    'MySQL',
+    'NodeJS',
   ]
-images:
-  [
-    'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/job-TechPods-91d71edc-44d1-4106-93c4-4e49e043b32e',
-    'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/job-TechPods-fc0dfa69-26e4-49d3-9fa4-b759bcfdc58f',
-  ]
-logo: '/all-the-best-recipes.png'
-image: 'https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/job-TechPods-91d71edc-44d1-4106-93c4-4e49e043b32e'
-summary: 'Digital cookbook for family use'
+logo: /all-the-best-recipes.png
+image: /recipes-img.png
+summary: Digital cookbook for family use
 url: https://all-the-best-recipes.vercel.app/
 repository:
   [
@@ -33,144 +30,120 @@ repository:
 
 # All the Best Recipes
 
-A family recipe collection website built to preserve and share our favorite dishes across generations. What started as a simple way to digitize handwritten recipes evolved into a comprehensive cooking platform.
+Digital cookbook for recording the most delicious recipes and their ingredients, originally intended for me and my family. Everyone can register and engage by commenting on different recipes, sharing their experience, or creating their own recipe.
 
-## Project Overview
+## History
 
-This project was born out of necessity when my grandmother's recipe collection was at risk of being lost. Instead of letting decades of culinary wisdom disappear, I decided to create a digital archive that the whole family could contribute to and access.
+This project has always been my personal playground for learning and experimenting with new technologies. The main goal was to keep it at zero cost, iterating and rebuilding it every time I learned something new, while also serving as a genuinely useful family cookbook.
 
-:::note Project Goals
+**December 12, 2021**: The project began as a backend-as-a-service solution using `back4app` + `MongoDB`. At the time, I had just finished my javascript course at [SoftUni](https://softuni.bg/) and wanted to practice my new skills. Not knowing how to build a backend myself, I chose a simple, cheap, and fast solution. The frontend was hosted on `firebase`. The main client was built in vanilla JS, intentionally avoiding frameworks to deeply learn JS fundamentals instead of relying on abstractions.
 
-- **Preserve**: Digitize and organize family recipes
-- **Share**: Allow family members to contribute their own recipes
-- **Discover**: Help users find recipes based on ingredients or dietary preferences
-- **Learn**: Provide detailed cooking instructions and tips
+**April 10, 2022**: After completing **MySQL**, **Spring Data**, and **HTML & CSS** courses, I improved the app by splitting the CSS into maintainable files, making the design responsive (320px to 4K), and redesigning the website.
 
-## Key Features
+:::carousel autoplay
+/recipes-project/7.png
+/recipes-project/8.png
+/recipes-project/9.png
+/recipes-project/10.png
+/recipes-project/11.png
+/recipes-project/1.png
+/recipes-project/2.png
+/recipes-project/3.png
+/recipes-project/4.png
+/recipes-project/5.png
+:::
 
-### Recipe Management System
+**May 16, 2022**: During the SoftUni Spring MVC course, I learned to build my own server. The app evolved into multiple clients and servers: a vanilla JS web client, a React Native mobile admin panel (to support both Android and iOS), a Node.js notification server (websockets, socket.io), and a Java REST API server.
 
-Built a comprehensive recipe management system with full CRUD operations:
+**Pre-React Migration 2022-2023**: The project won the Best SoftUni Project award for the year, chosen from all student submissions—a proud milestone achieved before the ReactJS migration.
 
-```typescript
-// Recipe data structure
-interface Recipe {
-  id: string;
-  title: string;
-  description: string;
-  prepTime: number; // minutes
-  cookTime: number; // minutes
-  servings: number;
-  difficulty: 'easy' | 'medium' | 'hard';
-  ingredients: Ingredient[];
-  instructions: Instruction[];
-  tags: string[];
-  nutritionInfo?: NutritionInfo;
-  images: string[];
-  authorId: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+:::carousel autoplay isVertical
+/recipes-project/mobile/1.png
+/recipes-project/mobile/2.png
+/recipes-project/mobile/3.png
+/recipes-project/mobile/4.png
+/recipes-project/mobile/5.png
+/recipes-project/mobile/6.png
+/recipes-project/mobile/7.png
+/recipes-project/mobile/8.png
+/recipes-project/mobile/9.png
+/recipes-project/mobile/10.png
+:::
 
-interface Ingredient {
-  id: string;
-  name: string;
-  amount: number;
-  unit: string;
-  notes?: string;
-}
+**December 22, 2023**: Having achieved my goal of mastering JavaScript fundamentals, I rebuilt the main client in **ReactJS**. This migration brought a complete redesign and modernization of the website, leveraging my new skills and making the codebase more maintainable and scalable.
 
-interface Instruction {
-  id: string;
-  stepNumber: number;
-  description: string;
-  image?: string;
-  timer?: number; // optional timer in minutes
-}
-```
+**December 23, 2023**: The backend faced another major change. Heroku's free tier was decommissioned, and my new hosting provider reduced the free RAM allowance from 512MB to 220MB. Rather than pay extra, I decided to rebuild the backend in **Golang** - a language I had learned while working for [Mansion](/work/Mansion%20Casinos) - because of its efficiency and low resource usage. The new Go backend, which also unified the old Node.js notification server, now runs comfortably at 60-80MB RAM, including all features.
 
-### Smart Search & Filtering
+Throughout its life, the project has gone through many iterations: from backendless, to Java + Node, to Golang ... from vanilla JS to ReactJS, and even a React Native mobile client. Every time I learned something new, I implemented it here. The site remains a go-to resource for my family whenever we cook something special.
 
-Implemented advanced search capabilities using Supabase's full-text search:
+**Reflection:** If I were to rebuild it today, I’d use **Next.js** - the perfect candidate for a static website, caching everything behind a CDN for instant loads. I would also use **Tailwind CSS** instead of Sass for utility-first styling and smaller CSS bundle. I would also not roll my own authentication solution - instead, I’d rely on something like **Clerk** for auth. Even so, the current React + Golang setup is highly performant: React Query fetches data with a JSON fallback, so users see content instantly while the Go server (which responds in ~100ms) processes requests. With Next.js, I could further reduce backend requests, but I’m proud of the performance and flexibility achieved so far.
 
-```sql
--- Full-text search function
-CREATE OR REPLACE FUNCTION search_recipes(
-  search_query TEXT DEFAULT '',
-  tag_filters TEXT[] DEFAULT '{}',
-  max_prep_time INTEGER DEFAULT NULL,
-  difficulty_level TEXT DEFAULT NULL
-)
-RETURNS TABLE (
-  id UUID,
-  title TEXT,
-  description TEXT,
-  prep_time INTEGER,
-  cook_time INTEGER,
-  difficulty TEXT,
-  tags TEXT[],
-  rank REAL
-)
-LANGUAGE plpgsql
-AS $$
-BEGIN
-  RETURN QUERY
-  SELECT
-    r.id,
-    r.title,
-    r.description,
-    r.prep_time,
-    r.cook_time,
-    r.difficulty,
-    r.tags,
-    ts_rank(
-      to_tsvector('english', r.title || ' ' || r.description || ' ' || array_to_string(r.tags, ' ')),
-      plainto_tsquery('english', search_query)
-    ) as rank
-  FROM recipes r
-  WHERE
-    (search_query = '' OR to_tsvector('english', r.title || ' ' || r.description) @@ plainto_tsquery('english', search_query))
-    AND (array_length(tag_filters, 1) IS NULL OR r.tags && tag_filters)
-    AND (max_prep_time IS NULL OR r.prep_time <= max_prep_time)
-    AND (difficulty_level IS NULL OR r.difficulty = difficulty_level)
-  ORDER BY rank DESC, r.created_at DESC;
-END;
-$$;
-```
+## Legacy Stack
 
-## Results & Impact
+The original versions of the project were built with the following technologies:
 
-The recipe website has become an integral part of our family's cooking routine:
+### Client
 
-- **500+ recipes** digitized and organized
-- **15 family members** actively contributing content
-- **95% reduction** in "What's for dinner?" discussions
-- **Zero lost recipes** since launch
+- **Vanilla JS** (with lit-html for templating)
+- **Page.js** (client-side routing)
+- **Webpack** (bundling)
+- **Email JS** (email sending)
+- **Firebase** (hosting)
 
-:::tip Lessons Learned
+### Mobile Admin Panel
 
-1. **Start simple**: Focus on core functionality before adding advanced features
-2. **Mobile-first**: Most recipe viewing happens on phones in the kitchen
-3. **Fast search**: Users expect instant results when looking for recipes
-4. **Clear instructions**: Step-by-step photos are worth more than lengthy descriptions
-5. **Family involvement**: Success depends on getting everyone to contribute their recipes
+- **React Native**
+- **Expo**
+- **React Navigation**
+- **Native Notify** (push notifications)
+- **React Native Async Storage**
+- **React Native Chart Kit**
 
-## Future Enhancements
+### API
 
-Plans for the next version include:
+- **Spring Boot**
+- **Spring Security**
+- **Auth0 JWT Token**
+- **Model Mapper**
+- **AWS s3**
+- **Gradle**
+- **MySQL**
 
-- **Voice commands** for hands-free recipe reading
-- **Smart ingredient substitutions** based on dietary restrictions
-- **Community features** for sharing recipes beyond family
-- **Integration with smart appliances** for automatic cooking instructions
-- **AI-powered recipe suggestions** based on available ingredients
+### Notifications Server
 
-## Conclusion
-
-Building "All the Best Recipes" was more than just a coding project—it was about preserving family heritage and creating new traditions. The combination of modern web technologies with timeless family recipes has created something truly special.
-
-The project taught me the importance of understanding your users (in this case, family members) and building features that solve real problems. Sometimes the best technology solutions are the ones that bring people together.
+- **Node.js**
+- **Socket.io**
 
 ---
 
-_Want to see the code? Check out the [GitHub repository](https://github.com/StGrozdanov/recipes-blog) or try the live site at [recipes.stoyangrozdanov.com](https://recipes.stoyangrozdanov.com)._
+## Current Stack
+
+Built with the following:
+
+### Client
+
+- **React JS**
+- **Typescript**
+- **SASS**
+- **CI/CD pipeline** (typechecking, custom linters, unit tests, integration tests, e2e tests, deployment environments)
+
+### Mobile Admin Panel
+
+- **React Native**
+- **Expo**
+- **Typescript**
+- **React Navigation**
+- **Native Notify** (push notifications)
+- **React Native Async Storage** (theme support, etc ..)
+- **React Native Chart Kit**
+
+### API
+
+- **Gin** (Golang)
+- **AWS SDK**
+- **Bcrypt**
+- **JWT**
+- **PostgreSQL** (with JSONB and standard columns)
+- **Prometheus**
+- **Websocket** (Gorilla)
+- **CI/CD pipeline** (custom linters, unit tests, integration tests, single deployment environment)

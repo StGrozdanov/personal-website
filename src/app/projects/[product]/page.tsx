@@ -5,6 +5,7 @@ import {
 import { getMarkdownContent } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import MarkdownRenderer from '@/app/_components/MarkdownRenderer/MarkdownRenderer';
 
 export async function generateStaticParams() {
   const projects = await getAllProjects();
@@ -31,7 +32,7 @@ export default async function ProjectDetail({
     .replace(/[^a-z0-9-]/g, '');
 
   const markdownContent = await getMarkdownContent('projects', slug);
-
+  
   return (
     <article className='px-4 lg:px-80 py-8 font-inter'>
       <header className='mb-8'>
@@ -107,22 +108,19 @@ export default async function ProjectDetail({
             ))}
         </div>
 
-        {project.images && project.images.length > 0 && (
+        {project.image && (
           <Image
-            src={project.images[0]}
+            src={project.image}
             alt={project.product}
             width={800}
             height={400}
-            className='w-full h-64 object-cover rounded-lg mb-8'
+            className='w-full object-contain rounded-lg mb-8'
           />
         )}
       </header>
 
       {markdownContent && (
-        <div
-          className='markdown-content max-w-none text-md'
-          dangerouslySetInnerHTML={{ __html: markdownContent.html }}
-        />
+        <MarkdownRenderer content={markdownContent.content} />
       )}
     </article>
   );

@@ -20,11 +20,13 @@
   },
   "dependencies": {
     "@types/markdown-it": "^14.1.2",
+    "fslightbox-react": "^1.8.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "next": "15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -34,6 +36,7 @@
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@fortawesome/react-fontawesome": "0.2.2",
     "@tailwindcss/postcss": "^4",
+    "@types/fslightbox-react": "^1.8.0",
     "@types/node": "^20",
     "@types/pg": "^8.15.4",
     "@types/react": "^19",
