@@ -9,7 +9,6 @@ export type BlogDetails = {
   html: string;
   created_at: Date;
   summary?: string;
-  tags?: string[];
   image?: string;
 };
 
@@ -38,7 +37,6 @@ export async function getBlogDetails(
       html: result.html,
       created_at: new Date(result.frontmatter.date),
       summary: result.frontmatter.summary,
-      tags: result.frontmatter.tags,
       image: result.frontmatter.image,
     };
   } catch (error) {

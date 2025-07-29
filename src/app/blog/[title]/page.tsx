@@ -24,7 +24,7 @@ export default async function BlogPost({
   }
 
   return (
-    <article className='px-4 lg:px-96 py-8'>
+    <article className='px-4 lg:px-80 py-8 font-inter tracking-wide'>
       <header className='mb-8'>
         <h1 className='text-4xl font-bold mb-4 text-black dark:text-white'>
           {blog.title}
@@ -38,19 +38,6 @@ export default async function BlogPost({
               day: 'numeric',
             })}
           </time>
-
-          {blog.tags && blog.tags.length > 0 && (
-            <div className='flex gap-2'>
-              {blog.tags.map(tag => (
-                <span
-                  key={tag}
-                  className='px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-xs'
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
 
         {blog.summary && (

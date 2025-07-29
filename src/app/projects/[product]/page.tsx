@@ -34,7 +34,7 @@ export default async function ProjectDetail({
   const markdownContent = await getMarkdownContent('projects', slug);
   
   return (
-    <article className='px-4 lg:px-80 py-8 font-inter'>
+    <article className='px-4 lg:px-80 py-8 font-inter tracking-wide'>
       <header className='mb-8'>
         <h1 className='text-4xl font-bold mb-4 text-black dark:text-white'>
           {project.product}

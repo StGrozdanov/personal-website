@@ -2,7 +2,6 @@
 title: "AI and Future Use Cases"
 date: "2025-06-06"
 summary: "Exploring the transformative potential of artificial intelligence across industries"
-tags: ["ai", "machine-learning", "future", "technology"]
 image: "/digital-finance.png"
 ---
 
@@ -203,7 +202,7 @@ class BiasDetector:
 The quest for human-level AI brings both excitement and concerns:
 
 :::danger AGI Considerations
-- **Timeline**: Experts disagree on when AGI might be achieved
+- **Timeline**: Experts `disagree` on when AGI might be achieved
 - **Control Problem**: Ensuring AGI systems remain aligned with human values
 - **Economic Impact**: Potential for massive economic disruption
 - **Existential Risk**: Long-term implications for humanity
@@ -211,7 +210,7 @@ The quest for human-level AI brings both excitement and concerns:
 
 ### Quantum-Enhanced AI
 
-The intersection of quantum computing and AI promises exponential improvements:
+>The intersection of quantum computing and AI promises exponential improvements:
 
 ```python
 # Quantum machine learning example (conceptual)

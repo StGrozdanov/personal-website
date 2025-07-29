@@ -279,6 +279,9 @@
 /* Markdown content styling */
 .markdown-content {
   @apply text-gray-600 dark:text-gray-200 leading-relaxed;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .markdown-content h1 {
@@ -310,16 +313,27 @@
   @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 dark:text-gray-400 my-6;
 }
 
-.markdown-content pre {
-  @apply rounded-lg overflow-hidden my-6;
+.markdown-content code {
+  @apply bg-gray-200 px-1 py-0.5 dark:bg-gray-800 rounded-lg overflow-x-auto my-6;
 }
 
-.markdown-content code {
-  @apply bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm;
+.markdown-content pre {
+  @apply bg-gray-100 p-4 dark:bg-black rounded-lg overflow-x-auto my-6;
 }
 
 .markdown-content pre code {
-  @apply bg-transparent p-0;
+  @apply bg-transparent px-2 py-0.5 rounded text-sm;
+  white-space: pre;
+  overflow-x: auto;
+  display: block;
+}
+
+.hljs-string {
+  @apply dark:text-blue-200;
+}
+
+.hljs-number {
+  @apply dark:text-blue-400;
 }
 
 .markdown-content a {
