@@ -45,7 +45,7 @@ export default function Home() {
             <span>Digital Finance</span>
           </Link>
         </p>
-        <Resume link='https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/portfolio/cv' />
+        <Resume link='https://personal-portfolio-web.s3.eu-central-1.amazonaws.com/CV-7.pdf' />
         <p className='mt-4 slide-enter-2'>
           I find passion and enjoyment in building things from scratch and
           turning raw ideas into real, working products. I love to brainstorm
