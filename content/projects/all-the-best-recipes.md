@@ -17,7 +17,7 @@ tech_stack:
     'NodeJS',
   ]
 logo: /all-the-best-recipes.png
-image: /recipes-img.png
+image: /recipes-project/recipes-img.png
 summary: Digital cookbook for family use
 url: https://all-the-best-recipes.vercel.app/
 repository:
