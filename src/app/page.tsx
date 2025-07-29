@@ -10,8 +10,8 @@ export default function Home() {
       </h1>
       <article className='space-y-6 '>
         <p className='mb-6 slide-enter'>
-          Hey! I&apos;m Stoyan, a software engineer and blockchain / AI
-          investor.
+          Hey! I&apos;m Stoyan, a software engineer, interested in blockchain
+          and AI technologies.
         </p>
         <p className='flex items-center gap-2 mb-1 slide-enter-1'>
           Working at{' '}
