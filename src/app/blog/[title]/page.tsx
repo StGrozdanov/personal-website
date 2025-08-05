@@ -4,6 +4,7 @@ import {
 } from '@/app/blog/server-functions/getBlogData';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import MarkdownRenderer from '@/app/_components/MarkdownRenderer/MarkdownRenderer';
 
 export async function generateStaticParams() {
   const blogs = await getAllBlogs();
@@ -57,10 +58,7 @@ export default async function BlogPost({
         )}
       </header>
 
-      <div
-        className='markdown-content max-w-none'
-        dangerouslySetInnerHTML={{ __html: blog.html }}
-      />
+      {blog.html && <MarkdownRenderer content={blog.html} />}
     </article>
   );
 }
