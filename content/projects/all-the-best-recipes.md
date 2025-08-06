@@ -76,6 +76,8 @@ This project has always been my personal playground for learning and experimenti
 
 Throughout its life, the project has gone through many iterations: from backendless, to Java + Node, to Golang ... from vanilla JS to ReactJS, and even a React Native mobile client. Every time I learned something new, I implemented it here. The site remains a go-to resource for my family whenever we cook something special.
 
+**2025**: As of 2025, all new website registrations are disabled, and the website will remain for personal use only.
+
 **Reflection:** If I were to rebuild it today, I’d use **Next.js** - the perfect candidate for a static website, caching everything behind a CDN for instant loads. I would also use **Tailwind CSS** instead of Sass for utility-first styling and smaller CSS bundle. I would also not roll my own authentication solution - instead, I’d rely on something like **Clerk** for auth. Even so, the current React + Golang setup is highly performant: React Query fetches data with a JSON fallback, so users see content instantly while the Go server (which responds in ~100ms) processes requests. With Next.js, I could further reduce backend requests, but I’m proud of the performance and flexibility achieved so far.
 
 ## Legacy Stack

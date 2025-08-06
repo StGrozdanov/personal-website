@@ -18,7 +18,11 @@ logo: /digital-finance.png
 image: /digital-finance/1.png
 summary: Tracking and growing investments
 url: http://your-digital-finance-app.vercel.app
-repository: []
+repository:
+  [
+    https://github.com/StGrozdanov/finance-web,
+    https://github.com/StGrozdanov/finance-api
+  ]
 ---
 
 # Digital Finance
@@ -36,5 +40,5 @@ The app is redefining personal investment management by combining institutional-
 I will be sharing interesting brainstorming cases and insights that I encounter during the development of the Digital Finance app on my [Blog](/blog). Stay tuned for updates and behind-the-scenes looks at the development process.
 
 **Blog Series**
-* #1 - [From Frustration to Product](/blog/from-frustration-to-product)
 
+- #1 - [From Frustration to Product](/blog/from-frustration-to-product)
