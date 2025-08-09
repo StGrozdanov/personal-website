@@ -17,7 +17,7 @@ tech_stack:
 logo: /digital-finance.png
 image: /digital-finance/1.png
 summary: Tracking and growing investments
-url: http://your-digital-finance-app.vercel.app
+url: https://digital-finance.app
 repository:
   [
     https://github.com/StGrozdanov/finance-web,
