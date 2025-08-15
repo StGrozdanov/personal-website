@@ -38,7 +38,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     const carouselData: CarouselData[] = [];
     let processedContent = content;
 
-    const carouselRegex = /:::carousel\s*([^\n]*?)\s*\n([\s\S]*?)\n:::/g;
+    const carouselRegex = /:::carousel\s*([^\n]*?)\s*\n((?:[^:]+|:(?!::))*?)\n:::/g;
     let match;
     let carouselIndex = 0;
 
