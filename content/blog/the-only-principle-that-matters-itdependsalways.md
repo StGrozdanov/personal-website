@@ -75,3 +75,22 @@ For example:
 - If you're building a **movie catalog platform**, you don’t need five layers of tests just to display an image.
 
 What matters is aligning your processes with your business needs, not mimicking what big corporations do. Their problems might not be your problems - yet.
+
+## The AI Factor
+
+AI is changing the game - especially for startups. It's easier than ever to generate code, spin up services, and move fast. AI-powered tooling can enable teams to ship thousands of lines of code a day.
+
+**And while AI can help you build faster, it won’t solve complexity for you.**
+
+If you don’t adjust your engineering discipline as you grow, AI will just help you **dig a deeper hole - faster**.
+
+The companies that will thrive in the AI era are the ones that know **when to move fast and when to slow down**. When to build for speed, and when to build for stability.
+
+## Final Thoughts
+
+Software engineering isn’t about _“best practices.”_.
+
+It’s about appropriate practices - the right decisions, at the right time, for the right context.
+
+So if I had to summarize my personal principle of software engineering in three words, it would be:
+**It. Depends. Always.**
