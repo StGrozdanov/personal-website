@@ -30,7 +30,7 @@ It keeps the gas pedal pressed, maintains distance decently well, but you still 
 
 ## Mobile Device Handling
 
-I’ve added a **dedicated screen** for anyone visiting from a mobile or smaller screen, since the site is optimized for desktop.  
+I’ve added a **dedicated screen** for anyone visiting from a mobile or smaller screen, since the site is optimized for desktop.
 
 :::carousel
 /digital-finance/4.png
@@ -39,7 +39,7 @@ I’ve added a **dedicated screen** for anyone visiting from a mobile or smaller
 Eventually, there will be a **dedicated mobile app**, but for now, smaller screens get redirected to a `/mobile` route using **Next.js middleware + client-side handling**.
 
 ```ts
-# middleware.ts
+// middleware.ts
 
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
@@ -56,7 +56,9 @@ const isProtectedRoute = createRouteMatcher(['/']);
 
 function isMobileOrTablet(userAgent: string | null): boolean {
   if (!userAgent) return false;
+
   const ua = userAgent.toLowerCase();
+
   return /mobi|android|iphone|ipad|ipod|phone|tablet/.test(ua);
 }
 
@@ -72,6 +74,7 @@ export default clerkMiddleware(async (auth, request) => {
     const userAgent = headers.get('user-agent');
     const chUaMobile = headers.get('sec-ch-ua-mobile');
     const hintedMobile = chUaMobile?.toLowerCase() === '?1';
+
     if (hintedMobile || isMobileOrTablet(userAgent)) {
       const url = new URL('/mobile', nextUrl);
       return NextResponse.redirect(url);
@@ -86,10 +89,10 @@ How it works:
 I use cookies + other detection methods to remember if a mobile user chooses to proceed anyway (valid for 1 day).
 Later, this will be replaced with App Store links.
 
-
-
 ### Dashboard & Data Approach
+
 The dashboard is currently working with hardcoded data. I always start frontend-first with dummy data to:
+
 - Nail the exact data structure early.
 - Speed up backend development.
 - Avoid guesswork and constant refactoring.
@@ -101,6 +104,7 @@ The dashboard is currently working with hardcoded data. I always start frontend-
 :::
 
 ### Next Steps
+
 In the next update, I’ll be:
 Implementing portfolio creation (manual input of assets).
 Visualizing that data.

@@ -58,7 +58,7 @@ export default async function BlogPost({
         )}
       </header>
 
-      {blog.html && <MarkdownRenderer content={blog.html} />}
+      {blog.content && <MarkdownRenderer content={blog.content} />}
     </article>
   );
 }
