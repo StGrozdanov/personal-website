@@ -43,3 +43,4 @@ I will be sharing interesting brainstorming cases and insights that I encounter 
 
 - #1 - [From Frustration to Product](/blog/from-frustration-to-product)
 - #2 - [Building Digital Finance - Week 2](/blog/building-digital-finance---week-2)
+- #3 - [Building Digital Finance - Week 2](/blog/building-digital-finance---week-3)
