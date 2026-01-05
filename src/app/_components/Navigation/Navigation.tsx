@@ -127,7 +127,7 @@ export default function Navigation() {
           </Link>
         </li>
         <li className='cursor-pointer hover:text-gray-700 transition-colors duration-300 dark:hover:text-white'>
-          <Link target='_blank' href='https://x.com/StGrozdanov'>
+          <Link target='_blank' href='https://x.com/StoyanGrr'>
             <FontAwesomeIcon icon={faXTwitter} fixedWidth size='lg' />
           </Link>
         </li>
