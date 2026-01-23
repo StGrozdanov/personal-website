@@ -3,6 +3,7 @@ import { Inter, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 import Navigation from './_components/Navigation/Navigation';
 import { ThemeProvider } from '@/context/ThemeContext';
+import Script from 'next/script';
 
 const interFont = Inter({
   subsets: ['latin'],
@@ -31,6 +32,12 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${interFont.variable} ${sansFont.variable}`}>
       <body className='mt-38 lg:mt-28 bg-[url("/bg-white.avif")] dark:bg-[url("/bg-dark.png")] dark:text-gray-300 text-gray-600 bg-cover bg-center bg-fixed selection:bg-gray-200 selection:text-gray-900 dark:selection:text-gray-200'>
+        <Script
+          defer
+          data-website-id="218c2e82-e12a-4c42-915e-05bba73a1fbe"
+          data-domain="stoyangrozdanov.com"
+          src="https://tracker-eight-rose.vercel.app/tracker.js"
+        />
         <ThemeProvider>
           <Navigation />
           {children}
