@@ -36,7 +36,7 @@ export default function RootLayout({
           defer
           data-website-id="218c2e82-e12a-4c42-915e-05bba73a1fbe"
           data-domain="stoyangrozdanov.com"
-          src="https://tracker-eight-rose.vercel.app/tracker.js"
+          src="https://traffic-story.vercel.app/js/script.js"
         />
         <ThemeProvider>
           <Navigation />
