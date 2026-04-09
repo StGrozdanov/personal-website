@@ -34,9 +34,9 @@ export default function RootLayout({
       <body className='mt-38 lg:mt-28 bg-[url("/bg-white.avif")] dark:bg-[url("/bg-dark.png")] dark:text-gray-300 text-gray-600 bg-cover bg-center bg-fixed selection:bg-gray-200 selection:text-gray-900 dark:selection:text-gray-200'>
         <Script
           defer
-          data-website-id="218c2e82-e12a-4c42-915e-05bba73a1fbe"
-          data-domain="stoyangrozdanov.com"
-          src="https://traffic-story.vercel.app/js/script.js"
+          data-website-id='e3477a61-c460-4024-b191-7db319eb5d68'
+          data-domain='stoyangrozdanov.com'
+          src='https://traffic-story-internal.vercel.app/js/script.js'
         />
         <ThemeProvider>
           <Navigation />
