@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { WorkExperience } from '@/app/work/server-functions/getWorkData';
+
+interface CardData {
+  product: string;
+  logo: string;
+  summary: string;
+}
 
 type ProjectCardProps = {
-  work: WorkExperience;
+  work: CardData;
   collection: 'work' | 'projects';
-}
+};
 
 export default function ProjectCard({ work, collection }: ProjectCardProps) {
   return (

@@ -58,6 +58,9 @@ export type WorkExperience = {
   logo: string;
   image: string;
   summary: string;
+  started_at: Date;
+  ended_at: Date | null;
+  contribution: string[];
 };
 
 /**
@@ -74,21 +77,17 @@ export async function getAllWorkExperiences(): Promise<WorkExperience[]> {
         logo: content.frontmatter.logo,
         image: content.frontmatter.image,
         summary: content.frontmatter.summary,
+        started_at: new Date(content.frontmatter.started_at),
+        ended_at:
+          content.frontmatter.ended_at ?
+            new Date(content.frontmatter.ended_at)
+          : null,
+        contribution: content.frontmatter.contribution || [],
       }))
-      .sort((a, b) => {
-        // Sort by start date, most recent first
-        const aDate = new Date(
-          allContent.find(c => c.frontmatter.product === a.product)?.frontmatter
-            .started_at || Date.now(),
-        );
-        const bDate = new Date(
-          allContent.find(c => c.frontmatter.product === b.product)?.frontmatter
-            .started_at || Date.now(),
-        );
-        return bDate.getTime() - aDate.getTime();
-      });
+      .sort((a, b) => b.started_at.getTime() - a.started_at.getTime());
   } catch (error) {
     console.error('Error getting all work experiences:', error);
     return [];
   }
 }
+
