@@ -1,37 +1,62 @@
 import { getAllBlogs } from './server-functions/getBlogData';
+import SearchInput from '../_components/SearchInput/SearchInput';
 
-export default async function Blog() {
+export default async function Blog({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const q = typeof params.q === 'string' ? params.q.toLowerCase() : '';
+  
   const blogs = await getAllBlogs();
+
+  const filteredBlogs = blogs.filter(
+    blog =>
+      blog.title.toLowerCase().includes(q) ||
+      blog.summary.toLowerCase().includes(q)
+  );
+
   return (
-    <section className='px-4 lg:px-96'>
-      <h1 className='text-4xl font-semibold mb-10 md:mb-20 text-black dark:text-white font-inter'>
-        Blog
+    <section className='px-4 pb-20 lg:px-96 font-inter'>
+      <h1 className='text-4xl font-semibold mb-6 text-black dark:text-white'>
+        Tech Blog
       </h1>
-      <section className='flex flex-col gap-4 slide-enter'>
-        {blogs.map(blog => (
+      
+      <SearchInput />
+
+      <section className='flex flex-col gap-8 slide-enter'>
+        {filteredBlogs.map(blog => (
           <article key={blog.title} className='slide-enter'>
             <a
               href={`/blog/${blog.title}`}
-              className='item block font-medium mb-2 no-underline'
+              className='block group no-underline'
             >
-              <li className='no-underline flex flex-col md:flex-row gap-2 md:items-center text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-400 transition-colors duration-300'>
-                <div className='title text-lg leading-[1.2em] flex gap-2 flex-wrap'>
-                  <span className='align-middle'>{blog.title}</span>
-                </div>
-                <div className='flex gap-2 items-center'>
-                  <span className='text-sm opacity-50 whitespace-nowrap'>
-                    {blog.created_at.toLocaleDateString('en-US', {
-                      month: '2-digit',
-                      day: '2-digit',
-                      year: 'numeric',
-                    })}
-                  </span>
-                </div>
-              </li>
+              <div className='flex flex-col gap-1'>
+                <h2 className='text-xl font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors'>
+                  {blog.title}
+                </h2>
+                
+                <span className='text-sm text-gray-500 dark:text-gray-400'>
+                  {new Date(blog.created_at).toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })}
+                </span>
+                
+                <p className='text-gray-600 dark:text-gray-300 mt-2 leading-relaxed'>
+                  {blog.summary}
+                </p>
+              </div>
             </a>
           </article>
         ))}
+        {filteredBlogs.length === 0 && blogs.length > 0 && (
+          <p className='text-gray-500'>No posts found matching &quot;{q}&quot;.</p>
+        )}
       </section>
     </section>
   );
 }
+

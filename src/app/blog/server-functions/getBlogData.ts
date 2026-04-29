@@ -48,6 +48,7 @@ export async function getBlogDetails(
 export type Blog = {
   title: string;
   created_at: Date;
+  summary: string;
 };
 
 /**
@@ -59,13 +60,32 @@ export async function getAllBlogs(): Promise<Blog[]> {
     const allContent = await getAllMarkdownContent('blog');
 
     return allContent
-      .map(content => ({
-        title: content.frontmatter.title,
-        created_at: new Date(content.frontmatter.date),
-      }))
+      .map(content => {
+        let rawContent = content.content;
+        rawContent = rawContent.replace(/#+\s+.*?(?:\r?\n|$)/g, '');
+        let summary = '';
+        const paragraphs = rawContent.split(/\r?\n\r?\n/);
+        for (const p of paragraphs) {
+          const trimmed = p.trim().replace(/\n/g, ' ');
+          if (trimmed && trimmed.match(/[a-zA-Z]/) && !trimmed.startsWith('![')) {
+            summary = trimmed.replace(/[_*`]/g, '');
+            if (summary) {
+              summary = summary.trim() + ' ...';
+            }
+            break;
+          }
+        }
+        
+        return {
+          title: content.frontmatter.title,
+          created_at: new Date(content.frontmatter.date),
+          summary,
+        };
+      })
       .sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
   } catch (error) {
     console.error('Error getting all blogs:', error);
     return [];
   }
 }
+
