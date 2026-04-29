@@ -9,9 +9,9 @@ concept: Travel Agency Website with a catalogue, details page, search and filtra
 tech_stack: [Express, MongoDB, Mongoose, JWT, ReactJS, JEST, Mocha, Chai]
 contribution:
   [
-    I have collaborated with another developer. Together with him and our client we planned,
+    'I have collaborated with another developer. Together with him and our client we planned,
     designed and then developed,
-    tested and deployed a full stack web app.,
+    tested and deployed a full stack web app.',
   ]
 images: [/travel-1.png, /travel-2.png]
 ---
